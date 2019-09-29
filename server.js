@@ -14,8 +14,8 @@ app.use(logger('dev'));
 app.use(express.json());
 // app.use(bodyParser.urlencoded({extended: false}));
 
-// const uri = 'mongodb://mongodb:27017/pruebaLogin';
-const uri = 'mongodb://localhost:27017/pruebaLogin';
+const uri = 'mongodb://mongodb:27017/testDemain';
+// const uri = 'mongodb://localhost:27017/pruebaLogin';
 
 mongoose.connect(uri, {
     useNewUrlParser: true, useCreateIndex: true
