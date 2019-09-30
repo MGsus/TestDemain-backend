@@ -16,4 +16,4 @@ COPY . .
 
 RUN npm install -g nodemon
 
-CMD [ "nodemon", "server", "0.0.0.0", "3000" ]
+CMD [ "nodemon", "server", "5000" ]
