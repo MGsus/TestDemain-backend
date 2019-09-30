@@ -99,7 +99,7 @@ authController.logIn = function (req, res) {
                         }).catch(err => {
                             return res.send({
                                 success: false,
-                                message: 'Error: ' + err
+                                message: 'Error:=> ' + err
                             });
                         })
                     }

@@ -18,7 +18,7 @@ let accessLogStream = rfs('access.log', {
     path: logDirectory
 });
 
-app.use(morgan('dev', { stream: accessLogStream }));
+app.use(morgan('dev', {stream: accessLogStream}));
 app.use(express.json());
 // app.use(bodyParser.urlencoded({extended: false}));
 
@@ -44,8 +44,15 @@ app.listen(port, () => {
     console.log(`Server is running on port: ${port}`)
 });
 
+// Error handler in dev
 app.use((req, res, next) => {
     next(createError(404));
 });
+
+// error handler in production
+// app.use((req, res, next) => {
+//     res.status(404);
+//     res.send('error');
+// });
 
 module.exports = app;
