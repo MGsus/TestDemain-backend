@@ -1,6 +1,10 @@
 let ProyectoController = {};
 
-ProyectoController.crear = function (req, res) {
+ProyectoController.create = function (req, res) {
+
+};
+
+ProyectoController.show = function (req, res) {
 
 };
 
