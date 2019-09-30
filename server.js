@@ -22,7 +22,7 @@ app.use(morgan('dev', {stream: accessLogStream}));
 app.use(express.json());
 // app.use(bodyParser.urlencoded({extended: false}));
 
-const uri = 'mongodb://mongodb:27017/testDemain';
+const uri = process.env.MONGO_URI;
 // const uri = 'mongodb://localhost:27017/pruebaLogin';
 
 mongoose.connect(uri, {
