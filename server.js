@@ -4,13 +4,21 @@ const cors = require('cors');
 const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const logger = require('morgan');
+const morgan = require('morgan');
+let rfs = require('rotating-file-stream');
 
 const app = express();
 const port = 5000;
+let logDirectory = path.join(__dirname, 'log');
 
 app.use(cors());
-app.use(logger('dev'));
+
+let accessLogStream = rfs('access.log', {
+    interval: '1d',
+    path: logDirectory
+});
+
+app.use(morgan('dev', { stream: accessLogStream }));
 app.use(express.json());
 // app.use(bodyParser.urlencoded({extended: false}));
 
