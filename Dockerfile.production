@@ -1,5 +1,7 @@
 FROM node:10
 
+ARG MONGO_URI
+
 WORKDIR /usr/src/app
 
 # Install app dependencies
