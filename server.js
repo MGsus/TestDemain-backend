@@ -22,7 +22,11 @@ app.use(morgan('dev', {stream: accessLogStream}));
 app.use(express.json());
 // app.use(bodyParser.urlencoded({extended: false}));
 
-const uri = process.env.MONGO_URI;
+let uri;
+if (process.env.NODE_ENV === 'dev')
+    uri = 'mongodb://mongodb:27017/Demain';
+if (process.env.NODE_ENV === 'production')
+    uri = 'mongodb+srv://demainRoot:demainRoot@demain-zdnjw.mongodb.net/test?retryWrites=true&w=majority';
 // const uri = 'mongodb://localhost:27017/pruebaLogin';
 
 mongoose.connect(uri, {
